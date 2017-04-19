@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:s="http://java.sun.com/jsf/composite/components">
+<h:head>
+</h:head>
+<h:body>
+   <h:form id="formPicoPlaca">
+   	<p:growl id="growl" showDetail="true" sticky="true" />
+      <div align="center" style="font-weight: bold; font-size: 300%">Pico y placa checker</div>
+      <div>
+      	<p:panelGrid columns="3">
+      		<p:outputLabel  value="Plate:" />
+      		<p:inputMask id="plate" mask="aaa9999" value="#{picoyPlacaController.inputPlaca}" requiredMessage="required field" required="true"></p:inputMask>
+      		<p:message for="plate" />
+      		
+      		<p:outputLabel  value="Date:" />
+      		<p:inputMask id="date" mask="99/99/9999" value="#{picoyPlacaController.inputDate}" requiredMessage="required field" required="true"></p:inputMask>
+      		<p:message for="date" />
+      		
+      		<p:outputLabel value="Time:" />
+      		<p:inputMask id="time" mask="99:99" value="#{picoyPlacaController.inputTime}" requiredMessage="required field" required="true"></p:inputMask>
+      		<p:message for="time" />
+      	</p:panelGrid>
+      	
+      	<p:commandButton id="guardar" value="Check" actionListener="#{picoyPlacaController.checkPicoPlaca}" update="growl"></p:commandButton> 
+      </div>
+   </h:form>
+</h:body>
+</html>
